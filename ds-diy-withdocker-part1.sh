@@ -123,7 +123,7 @@ cat>files/usr/share/Check_Update.sh<<-\EOF
 #检测准备
 if [ ! -f  "/etc/dscao_version" ]; then
 	echo
-	echo -e "\033[31m 该脚本在非dscao固件上运行，为避免不必要的麻烦，准备退出… \033[0m"
+	echo -e "\033[31m 该脚本在非dscao-withdocker固件上运行，为避免不必要的麻烦，准备退出… \033[0m"
 	echo
 	exit 0
 fi
