@@ -158,7 +158,10 @@ jobs:
         sed -i 's/^\t\$(INSTALL_DIR) \$(1)\/etc\/init\.d$\|^\t\$(INSTALL_BIN) \.\/files\/adguardhome\.init \$(1)\/etc\/init\.d\/adguardhome$\|^\t\$(INSTALL_DIR) \$(1)\/etc\/config$\|^\t\$(INSTALL_DATA) \.\/files\/adguardhome\.config \$(1)\/etc\/config\/adguardhome$//' feeds/packages/net/adguardhome/Makefile
     
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
+      run: |
+        cd openwrt && ./scripts/feeds install -a
+        rm -rf feeds/packages/lang/golang
+        git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
     - name: Load custom configuration
       run: |
